@@ -1,0 +1,121 @@
+body{
+    background-color: black !important;
+    color: white !important;
+    min-height: 100vh !important;
+}
+.navbar{
+    background-color: rgb(246, 233, 212);
+    height: 4rem;
+}
+.icon{
+    color: #fe424d;
+    font-size: 2.5rem;
+}
+.nav-link{
+    color: #fe424d !important;
+   font-size: larger !important;
+   font-weight: 600 !important;
+}
+footer{
+    text-align: center;
+    width: 100%;
+    background-color: beige;
+    padding-bottom: 15px;
+    color: black;
+}
+footer i{
+    font-size: 1.2rem;
+    margin: 5px;
+}
+.allLists{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.list{
+    width: 30%;
+    text-decoration: none;
+    margin: 1rem;
+}
+.card{
+    padding: 1rem;
+    height: 60vh !important;
+    border-radius: 1rem !important;
+}
+
+.card img{
+    border-radius: 1rem;
+    width: 100%;
+    height: 70%;
+    object-fit: cover !important;
+}
+.card-img-overlay{
+    background-color: aliceblue;
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: .3;
+}
+.newPage{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.newForm{
+    width: 30vw;
+    padding: 10px;
+}
+.btnRed{
+    background-color: #fe424d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.listDiv{
+    width: 100%;
+    padding: 15px;
+}
+.listImg{
+    width: 450px;
+    height: 270px;
+    margin: 8px; 
+    border: 1px solid white; 
+    border-radius: 8px;
+}
+.errorPage{
+    height: 80vh;
+}
+.alert{
+    margin: 5px;
+}
+.formReview{
+    width: 40%;
+}
+.comment{
+    border: 1px solid white;
+    border-radius: 5px;
+    display: inline-block;
+    width: 250px;
+    padding: 6px;
+    margin: 3px;
+}
+.comment h3{
+    display: flex; 
+    gap: 8px; 
+    align-items: center;
+}
+.comment h3>div img{
+    width: 27px; 
+    height: 27px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+.form-text{
+    color: white !important;
+}
+.navbar-nav a:hover{
+    color: rgb(197, 66, 18) !important;
+}

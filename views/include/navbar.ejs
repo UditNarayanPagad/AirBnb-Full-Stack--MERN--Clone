@@ -1,0 +1,44 @@
+<style>
+.Search{
+  border-radius: 8px;
+  padding: 5px;
+  margin-left: 5px;
+  border: 1px solid black;
+}
+.SearchButton{
+  background-color: #FF385C;
+  color: white;
+  border-radius: 8px;
+  padding: 5px 8px;
+  margin-left: 5px;
+  border: none;
+}
+.SearchButton:hover{
+  background-color: #d00228;
+}
+</style>
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><i class="icon ri-compass-discover-line"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" aria-current="page" href="/listings">Explore</a>
+      </div>
+      <div > <input class="Search" type="text" placeholder="Search For Destinations"><button class="SearchButton">Search</button></div>
+      <div class="navbar-nav ms-auto"> 
+          <a class="nav-link" href="/listings/new">Add your Spot</a>
+        <% if(!curUser){ %>
+        <a class="nav-link" aria-current="page" href="/signUp">Sign up</a>
+        <a class="nav-link" href="/login">Log In</a>
+        <% } %>
+        <% if(curUser){ %>
+        <a class="nav-link" href="/logout">Log Out</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav> 

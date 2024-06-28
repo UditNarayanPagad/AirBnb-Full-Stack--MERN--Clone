@@ -1,0 +1,101 @@
+<% layout("/layouts/boilerPlate") %>
+
+<body>
+  <span class="badge text-bg-warning"><%= message %></span>
+  <div class="listDiv">
+    <h3><%= list.title %></h3>
+    <ul>
+      <li><%= list.description %></li>
+      <li>
+        <img
+          id="image"
+          class="listImg"
+          src="<%= list.image.url %>"
+          alt=""
+        /><br />
+      </li>
+      <li>Owner: <strong> <%= list.owner.username %> </strong></li>
+      <li>&#8377;<%= list.price.toLocaleString("en-IN") %></li>
+      <li><%= list.location %></li>
+      <li><%= list.country %></li>
+    </ul>
+    <% if (curUser && curUser._id.equals(list.owner._id)) {%>
+    <form action="/listings/<%= list._id %>/edit">
+      <button class="btnRed">Edit</button>
+    </form>
+    <br />
+    <form action="/listings/<%= list._id %>?_method=DELETE" method="post">
+      <button class="btnRed">Delete</button>
+    </form>
+    <%} %> <% if(curUser){ %>
+    <form
+      action="/listings/<%= list._id %>/review"
+      method="post"
+      class="formReview needs-validation"
+      novalidate
+    >
+      <h1>Leave a Review</h1>
+      <label for="range" class="form-label">Rating:</label>
+      <fieldset class="starability-slot" id="range">
+        <input
+          type="radio"
+          id="no-rate"
+          class="input-no-rate"
+          name="rating"
+          value="1"
+          checked
+          aria-label="No rating."
+        />
+        <input type="radio" id="first-rate1" name="rating" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="rating" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="rating" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="rating" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="rating" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+      <label class="form-label" for="comment">Write a comment</label>
+      <textarea
+        class="form-control"
+        name="comment"
+        id="comment"
+        cols="30"
+        rows="3"
+        required
+      ></textarea
+      ><br />
+      <div class="invalid-feedback">Please Write a comment</div>
+      <button class="btnRed">Submit Review</button>
+    </form>
+    <% } %>
+    <hr />
+    <h3>Reviews(<%= list.review.length %>)</h3>
+    <% for(rev of list.review) {%>
+    <div class="comment">
+      <h3>
+        <div>
+          <img
+            src="https://thumbs.dreamstime.com/b/person-icon-flat-style-man-symbol-person-icon-flat-style-man-symbol-isolated-white-background-simple-people-abstract-icon-118611127.jpg"
+            alt=""
+          />
+        </div>
+        <strong> <%= rev.author.username %> </strong>
+      </h3>
+      <p class="starability-result" data-rating=<%= rev.rating %>> </p>
+      <p>Comment: <%= rev.comment %></p>
+      <% if(curUser){ %>
+      <form
+        action="/listings/<%= list._id %>/review/<%= rev._id %>?_method=DELETE"
+        method="post"
+      >
+        <button>Delete</button>
+      </form>
+      <% } %>
+    </div>
+    <br />
+    <% } %>
+  </div>
+</body>

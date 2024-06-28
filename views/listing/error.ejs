@@ -1,0 +1,11 @@
+<% layout("/layouts/boilerPlate") %>
+<body>
+    <div class="errorPage">
+        <div class="alert alert-danger" role="alert">
+            <%= error.message %>
+        </div>
+        <p>
+            <%= error.stack %>
+        </p>
+    </div>
+</body>

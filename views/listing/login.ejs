@@ -1,0 +1,20 @@
+<% layout("/layouts/boilerPlate") %>
+<body>
+    <div class="newPage">     
+        <form action="/login" method="post" class="needs-validation newForm" novalidate> 
+          <span class="badge text-bg-warning"><%= message %></span> 
+          <%= messages.error %>      
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" name="username" class="form-control" id="username" required>
+              <div class="invalid-feedback">Username is required</div>
+            </div>
+            <div class="mb-3">
+              <label for="Password" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="Password" required>
+              <div class="invalid-feedback">Password is required</div>
+            </div>
+            <button type="submit" class="btn btn-primary btnRed">Log in</button>
+          </form>
+    </div>
+</body>
