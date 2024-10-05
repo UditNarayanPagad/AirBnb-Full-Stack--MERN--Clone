@@ -86,8 +86,6 @@
       </h3>
       <p class="starability-result" data-rating=<%= rev.rating %>> </p>
       <p>Comment: <%= rev.comment %></p>
-      <% console.log(curUser);
-       %>
       <% if (curUser.username == rev.author.username) {%>
       <form
         action="/listings/<%= list._id %>/review/<%= rev._id %>?_method=DELETE"
